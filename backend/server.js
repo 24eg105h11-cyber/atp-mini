@@ -9,7 +9,20 @@ const app=exp()
 
 //CORS middleware
 app.use(core({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173'
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            process.env.FRONTEND_URL,
+            'https://atp-mini-frontend-git-main-24eg105h11-cybers-projects.vercel.app',
+            'https://atp-mini-frontend.vercel.app'
+        ];
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
 }))
 
 //body parser middleware
