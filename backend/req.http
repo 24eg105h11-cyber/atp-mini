@@ -1,0 +1,17 @@
+POST http://localhost:5000/employee/add
+Content-Type: application/json
+
+{
+    "name": "RevanthCh",
+    "email": "Revanth33@gmail.com",
+    "phoneNumber": 1234283982,
+    "companyName": "AU"
+}
+
+###
+
+GET http://localhost:5000/employee/employees
+
+###
+
+PUT http://localhost:5000/employee/69cab5b6409b903c5538be4b
