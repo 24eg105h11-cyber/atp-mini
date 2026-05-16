@@ -1,0 +1,11 @@
+
+{
+  "name": "react-application-root",
+  "version": "1.0.0",
+  "scripts": {
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend/RT && npm install",
+    "build-frontend": "cd frontend/RT && npm run build",
+    "start-backend": "cd backend && node server.js"
+  }
+}

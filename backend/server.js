@@ -11,7 +11,9 @@ const app=exp()
 app.use(core({
     origin: [
         process.env.FRONTEND_URL,
-        'https://atp-mini.vercel.app'
+        'https://atp-mini.vercel.app',
+        'http://localhost:5173',
+        'http://localhost:5174'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
@@ -19,6 +21,11 @@ app.use(core({
 
 //body parser middleware
 app.use(exp.json())
+
+//Root route
+app.get('/', (req, res) => {
+    res.json({ message: "Welcome to the Employee API" })
+})
 
 //Route middleware
 app.use("/employee",employeeApp)
